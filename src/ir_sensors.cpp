@@ -4,6 +4,8 @@
 
 using namespace std;
 
+#define INVALID 1000
+
 class IrSensorValues {
 
 public:
@@ -38,12 +40,17 @@ public:
         /*Check if any of the sensor values are out of range. In range according to datasheet are
         4-30 cm for sensors 1-4 and 10-80 cm for sensor 5.
         */
-        if (sensor_cm.ch1 < 4 || sensor_cm.ch1 > 30) sensor_cm.ch1 = 0;
-        if (sensor_cm.ch2 < 4 || sensor_cm.ch2 > 30) sensor_cm.ch2 = 0;
-        if (sensor_cm.ch3 < 4 || sensor_cm.ch3 > 30) sensor_cm.ch3 = 0;
-        if (sensor_cm.ch4 < 4 || sensor_cm.ch4 > 30) sensor_cm.ch4 = 0;
-        if (sensor_cm.ch5 < 10 || sensor_cm.ch5 > 80) sensor_cm.ch5 = 0;
+        if (sensor_cm.ch1 > 30) sensor_cm.ch1 = INVALID;
+        if (sensor_cm.ch2 > 30) sensor_cm.ch2 = INVALID;
+        if (sensor_cm.ch3 > 30) sensor_cm.ch3 = INVALID;
+        if (sensor_cm.ch4 > 30) sensor_cm.ch4 = INVALID;
+        if (sensor_cm.ch5 > 80) sensor_cm.ch5 = INVALID;
 
+        if (sensor_cm.ch1 < 4) sensor_cm.ch1 = 0;
+        if (sensor_cm.ch2 < 4) sensor_cm.ch2 = 0;
+        if (sensor_cm.ch3 < 4) sensor_cm.ch3 = 0;
+        if (sensor_cm.ch4 < 4) sensor_cm.ch4 = 0;
+        if (sensor_cm.ch5 < 4) sensor_cm.ch5 = 0;
     }
 
     void publishValues() {
