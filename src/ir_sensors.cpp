@@ -37,6 +37,9 @@ public:
         //Calculation for sensor 5, front
         sensor_cm.ch5 = nearbyint(366.8 * exp(-0.02793*msg->ch5) + 58.15 * exp(-0.003915*msg->ch5));
 
+	//Calculation for sensor 6, front
+        sensor_cm.ch6 = nearbyint(133.2 * exp(-0.01723*msg->ch6) + 38.57 * exp(-0.002895*msg->ch6));
+
         /*Check if any of the sensor values are out of range. In range according to datasheet are
         4-30 cm for sensors 1-4 and 10-80 cm for sensor 5.
         */
@@ -45,12 +48,14 @@ public:
         if (sensor_cm.ch3 > 30) sensor_cm.ch3 = INVALID;
         if (sensor_cm.ch4 > 30) sensor_cm.ch4 = INVALID;
         if (sensor_cm.ch5 > 80) sensor_cm.ch5 = INVALID;
+        if (sensor_cm.ch6 > 80) sensor_cm.ch6 = INVALID;
 
         if (sensor_cm.ch1 < 4) sensor_cm.ch1 = 0;
         if (sensor_cm.ch2 < 4) sensor_cm.ch2 = 0;
         if (sensor_cm.ch3 < 4) sensor_cm.ch3 = 0;
         if (sensor_cm.ch4 < 4) sensor_cm.ch4 = 0;
-        if (sensor_cm.ch5 < 4) sensor_cm.ch5 = 0;
+        if (sensor_cm.ch5 < 10) sensor_cm.ch5 = 0;
+        if (sensor_cm.ch6 < 10) sensor_cm.ch6 = 0;
     }
 
     void publishValues() {
