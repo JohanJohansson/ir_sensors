@@ -5,16 +5,18 @@ Sensor 1:
 General model Exp2:
      f(x) = a*exp(b*x) + c*exp(d*x)
 Coefficients (with 95% confidence bounds):
-       a =       58.13  (56.03, 60.22)
-       b =     -0.0155  (-0.01665, -0.01435)
-       c =       17.27  (15.24, 19.31)
-       d =   -0.002833  (-0.00313, -0.002537)
+       a =       154.8  (65.73, 243.8)
+       b =    -0.02615  (-0.03405, -0.01825)
+       c =       22.18  (16.2, 28.16)
+       d =   -0.003397  (-0.004268, -0.002526)
 
 Goodness of fit:
-  SSE: 0.3414
-  R-square: 0.9998
-  Adjusted R-square: 0.9998
-  RMSE: 0.1218
+  SSE: 9.209
+  R-square: 0.9944
+  Adjusted R-square: 0.9936
+  RMSE: 0.6328
+
+
 
 or
 
@@ -219,6 +221,41 @@ Goodness of fit:
   R-square: 0.999
   Adjusted R-square: 0.9988
   RMSE: 0.5048
+
+Sensor 7:
+
+General model Exp2:
+     f(x) = a*exp(b*x) + c*exp(d*x)
+Coefficients (with 95% confidence bounds):
+       a =       59.47  (49.75, 69.19)
+       b =    -0.01775  (-0.02192, -0.01359)
+       c =       18.61  (13.44, 23.78)
+       d =   -0.002896  (-0.003649, -0.002143)
+
+Goodness of fit:
+  SSE: 4.084
+  R-square: 0.9975
+  Adjusted R-square: 0.9972
+  RMSE: 0.4214
+
+or
+
+Linear model Poly5:
+     f(x) = p1*x^5 + p2*x^4 + p3*x^3 + p4*x^2 + p5*x + p6
+       where x is normalized by mean 189.6 and std 123.2
+Coefficients (with 95% confidence bounds):
+       p1 =     -0.2918  (-0.5137, -0.07002)
+       p2 =       1.913  (0.9028, 2.922)
+       p3 =      -4.468  (-5.456, -3.48)
+       p4 =       5.774  (4.668, 6.88)
+       p5 =      -8.089  (-8.908, -7.269)
+       p6 =       12.81  (12.46, 13.17)
+
+Goodness of fit:
+  SSE: 4.298
+  R-square: 0.9974
+  Adjusted R-square: 0.9968
+  RMSE: 0.4524
 
 
 
